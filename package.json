@@ -2,9 +2,9 @@
   "name": "lens-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "electron . --no-sandbox --disable-setuid-sandbox",
+    "start": "electron . --no-sandbox --disable-setuid-sandbox --ozone-platform=x11",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
