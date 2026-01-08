@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>PDF Viewer</title>
+  <link rel="stylesheet" href="../assets/pdf/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <button id="toggleLens">Translator: ON</button>
+    <input type="file" id="filePick" accept="application/pdf" />
+    <button id="read">Read</button>
+  </div>
+
+  <div id="viewer"></div>
+ 
+  <script type="module" src="../../node_modules/pdfjs-dist/build/pdf.min.mjs"></script>
+  <script type="module" src="./render.js"></script>
+  <script type="module" src="./translator.js"></script>
+</body>
+</html>

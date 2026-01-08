@@ -1,5 +1,19 @@
-## Desktop Surface Lens with Scrolling Support
+# Reader
 
-## Preview
+## 1. PDF Reader with Translator Lens
 
-![Desktop Surface Lens Preview](./images/lens.png)
+PDF-reader with function turn on/off translator lensс
+
+### Preview
+
+![PDF Reader with Translator Lens](./images/pdfreader.png)
+
+---
+
+## 2. Desktop Surface Lens with Scrolling Support
+
+Desktop lens for translate with posibility of scrolling
+
+### Preview
+
+![Desktop Surface Lens with Scrolling Support](./images/translator.png)
