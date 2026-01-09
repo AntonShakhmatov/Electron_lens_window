@@ -1,5 +1,8 @@
 console.log('pdfjsLib exists?', typeof pdfjsLib !== 'undefined')
 console.log('workerSrc:', pdfjsLib?.GlobalWorkerOptions?.workerSrc)
+import Reader from './reader.js'
+
+const reader = new Reader();
 
 const btn = document.getElementById('toggleLens')
 const filePick = document.getElementById('filePick')
@@ -69,7 +72,13 @@ btn.addEventListener('click', async () => {
 filePick.addEventListener('change', async (e) => {
   const file = e.target.files?.[0]
   if (!file) return
+
+  const buf = await file.arrayBuffer()
+
   await openAndRenderPdf({ file })
+  const items = await reader.getItems(buf)
+
+  console.log('PDF TEXT:', items.join(' '))
 })
 
 // Read button
