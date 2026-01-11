@@ -79,6 +79,9 @@ filePick.addEventListener('change', async (e) => {
   const items = await reader.getItems(buf)
 
   console.log('PDF TEXT:', items.join(' '))
+
+  const result = await window.api.translatePdf(items)
+  console.log('TRANSLATED:', result)
 })
 
 // Read button

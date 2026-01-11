@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain, screen } = require('electron')
 const path = require('path')
+const gemini = require('./gemini/translator/gemini');
 
-let win = null
 let pdfWin = null
 let overlayWin = null
 
@@ -42,6 +42,7 @@ function createPdfWindow() {
     }
   })
 
+  // pdfWin.loadURL("http://localhost:5173")
   pdfWin.loadFile('render/pdf/index.html')
 }
 
@@ -91,6 +92,10 @@ ipcMain.handle('lens:toggle', () => {
 ipcMain.handle('lens:isOn', () => {
   return { on: !!overlayWin }
 })
+
+ipcMain.handle('gemini:translate', async (_, text) => {
+  return await gemini.translate(text);
+});
 
 app.whenReady().then(() => {
   createPdfWindow()
