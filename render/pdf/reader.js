@@ -18,16 +18,56 @@ export default class Reader {
   }
 
   async getItems(buffer) {
-    const pages = await this.getContent(buffer)
-    const items = []
+    const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
+    let full = [];
 
-    pages.forEach(page => {
-      page.items.forEach(item => {
-        items.push(item.str)
-      })
-    })
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      const page = await pdf.getPage(pageNum);
+      const textContent = await page.getTextContent();
 
-    return items
+      const items = textContent.items
+        .filter(i => i.str && i.str.trim().length > 0)
+        .map(i => {
+          const y = i.transform?.[5] ?? 0;
+          const x = i.transform?.[4] ?? 0;
+          const fontSize = Math.abs(i.transform?.[3] ?? 0) || 10;
+          return { str: i.str, x, y, fontSize };
+        });
+
+      items.sort((a, b) => (b.y - a.y) || (a.x - b.x));
+
+      let pageText = '';
+      let lastY = null;
+
+      for (const it of items) {
+        if (lastY === null) {
+          pageText += it.str;
+          lastY = it.y;
+          continue;
+        }
+
+        const dy = Math.abs(it.y - lastY);
+
+        if (dy >= it.fontSize * 1.6) {
+          pageText += '\n\n' + it.str;
+        } else if (dy >= it.fontSize * 0.6) {
+          pageText += '\n' + it.str;
+        } else {
+          const needSpace =
+            pageText.length > 0 &&
+            !pageText.endsWith(' ') &&
+            !it.str.startsWith(' ') &&
+            !/[\-–—]$/.test(pageText);
+          pageText += (needSpace ? ' ' : '') + it.str;
+        }
+
+        lastY = it.y;
+      }
+
+      full.push(pageText.trim());
+    }
+
+    return full.join('\n\n---\n\n');
   }
 
   //pdf in buffer

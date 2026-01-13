@@ -1,19 +1,22 @@
 # Reader
 
-## 1. PDF Reader with Translator Lens
+## 1. PDF Reader with
 
 PDF-reader with function turn on/off translator lensс
 
 ### Preview
 
-![PDF Reader with Translator Lens](./images/pdfreader.png)
+![PDF reader](./images/pdf_reader.png)
 
 ---
 
-## 2. Desktop Surface Lens with Scrolling Support
-
-Desktop lens for translate with posibility of scrolling
+## 2. Gemini russian translator of PDF files
 
 ### Preview
 
-![Desktop Surface Lens with Scrolling Support](./images/translator.png)
+![Gemini translator](./images/gemini_translator.png)
+
+
+## Launching of the application 
+
+GEMINI_API_KEY=.... npm start
