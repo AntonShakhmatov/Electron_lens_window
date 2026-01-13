@@ -1,9 +1,8 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld('api', {
-  toggleLens: () => ipcRenderer.invoke('lens:toggle'),
-  isLensOn: () => ipcRenderer.invoke('lens:isOn'),
-  savePdf: (payload) => ipcRenderer.invoke('save-pdf', payload),
+  isTranslateOn: () => ipcRenderer.invoke('translate:isOn'),
+  toggleTranslate: () => ipcRenderer.invoke('translate:toggle'),
   translatePdf(text) {
     return ipcRenderer.invoke('gemini:translate', text);
   }
