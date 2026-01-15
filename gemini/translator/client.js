@@ -30,6 +30,40 @@ class GeminiClient {
 
         return res.data?.candidates?.[0]?.content?.parts?.[0]?.text || null;
     }
+
+    async generateEn(text) {
+        const promptText = this.promptBuilder.buildEnPrompt(text);
+
+        const res = await this.httpClient.post(
+            `/models/${this.model}:generateContent?key=${this.apiKey}`,
+            {
+                contents: [
+                    {
+                        parts: [{ text: promptText }]
+                    }
+                ]
+            }
+        );
+
+        return res.data?.candidates?.[0]?.content?.parts?.[0]?.text || null;
+    }
+
+    async generateCz(text) {
+        const promptText = this.promptBuilder.buildCzPrompt(text);
+
+        const res = await this.httpClient.post(
+            `/models/${this.model}:generateContent?key=${this.apiKey}`,
+            {
+                contents: [
+                    {
+                        parts: [{ text: promptText }]
+                    }
+                ]
+            }
+        );
+
+        return res.data?.candidates?.[0]?.content?.parts?.[0]?.text || null;
+    }
 }
 
 module.exports = GeminiClient;

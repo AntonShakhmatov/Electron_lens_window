@@ -7,8 +7,16 @@
 </head>
 <body>
   <div class="topbar">
-    <button id="toggleLens">Translator: OFF</button>
-    <input type="file" id="filePick" accept="application/pdf" />
+    <div class="space">
+      <button id="toggleLens">Translator: OFF</button>
+      <input type="file" id="filePick" accept="application/pdf" />
+    </div>
+      <div id="language">
+        <button id="ru">RU</button>
+        <button id="en">EN</button>
+        <button id="cz">CZ</button>
+      </div>
+      <div id="next" style="display: none;"><button id ="nextButton">Translate more: &rArr;</button></div>
   </div>
 
   <div id="viewer"></div>

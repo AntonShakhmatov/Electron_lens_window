@@ -33,6 +33,15 @@ ipcMain.handle('gemini:translate', async (_, text) => {
   return await gemini.translate(text);
 });
 
+ipcMain.handle('gemini:translateEn', async (_, text) => {
+  return await gemini.translateEn(text);
+});
+
+ipcMain.handle('gemini:translateCz', async (_, text) => {
+  return await gemini.translateCz(text);
+});
+
+
 app.whenReady().then(() => {
   createPdfWindow()
 })
