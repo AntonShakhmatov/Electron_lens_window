@@ -1,22 +1,48 @@
-# Reader
+## 🚀 Getting Started
 
-## 1. PDF Reader with
+### 📦 Installation
 
-PDF-reader with function turn on/off translator lensс
+Install project dependencies:
 
-### Preview
-
-![PDF reader](./images/pdf_reader.png)
+```bash
+npm install
+```
 
 ---
 
-## 2. Gemini russian translator of PDF files
+### ▶️ Run the Application
 
-### Preview
+Before starting the application, you must provide a **Gemini API key** as an environment variable:
 
-![Gemini translator](./images/gemini_translator.png)
+```bash
+GEMINI_API_KEY=your_api_key_here npm start
+```
 
+---
 
-## Launching of the application 
+## 🛠 How It Works
 
-GEMINI_API_KEY=.... npm start
+### 1️⃣ Set the Translation Language
+
+* Select the **target language** for translation.
+* The selected language is required to enable PDF loading and processing.
+* The PDF reader itself **does not depend** on the selected language.
+
+---
+
+### 2️⃣ Open a PDF Document
+
+* Open the PDF file you want to read or translate.
+
+---
+
+### 3️⃣ Translate the Document
+
+* Click the **Translate** button.
+* The document is translated **in batches of 10 pages**.
+
+---
+
+### Gif instruction step by step
+
+![Application demo](images/instruction.gif)

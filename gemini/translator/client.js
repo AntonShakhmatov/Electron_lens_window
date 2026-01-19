@@ -9,7 +9,7 @@ class GeminiClient {
 
         this.httpClient = axios.create({
             baseURL: 'https://generativelanguage.googleapis.com/v1beta',
-            timeout: 30000,
+            timeout: 120000,
             proxy: false,
         });
     }

@@ -114,4 +114,9 @@ export default class Reader {
     const buf = await pickedFile.arrayBuffer()
     await this.renderPdfFromArrayBuffer(buf)
   }
+
+  async getPageTextSimple(page) {
+    const tc = await page.getTextContent();
+    return tc.items.map(i => i.str).join(' ');
+  }
 }

@@ -10,6 +10,11 @@ export default class Translator {
     this.renderResult(text);
   }
 
+  appendTranslatedText(text) {
+    viewer.style.whiteSpace = 'pre-wrap';
+    viewer.textContent += '\n\n' + text;
+  }
+
   clearLens() {
     viewer.textContent = '';
   }

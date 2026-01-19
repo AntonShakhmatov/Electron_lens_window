@@ -8,21 +8,20 @@
 <body>
   <div class="topbar">
     <div class="space">
-      <button id="toggleLens">Translator: OFF</button>
-      <input type="file" id="filePick" accept="application/pdf" />
-    </div>
       <div id="language">
         <button id="ru">RU</button>
         <button id="en">EN</button>
         <button id="cz">CZ</button>
       </div>
-      <div id="next" style="display: none;"><button id ="nextButton">Translate more: &rArr;</button></div>
+      <!-- <button id="toggleLens">Translator: OFF</button> -->
+      <input type="file" id="filePick" accept="application/pdf"/>
+    </div>
+      <div id="next"><button id ="nextButton">Translate &rArr;</button></div>
   </div>
 
   <div id="viewer"></div>
   <div id="status"></div>
   <script type="module" src="../../node_modules/pdfjs-dist/build/pdf.min.mjs"></script>
   <script type="module" src="./render.js"></script>
-  <!-- <script type="module" src="./translator.js"></script> -->
 </body>
 </html>
